@@ -26,16 +26,18 @@ with open(ROOT / "input.txt", "r", encoding="utf-8") as file:
 
         if mod == 0:
             start = 0
-            password += round(abs(command_sum // 100))
-        elif start != 0 and (command_sum < 0 or command_sum > 100):
+            if command_sum <= 0:
+                password += round(abs(units // 100))
+            else:
+                password += round(abs(command_sum // 100))
+        elif command_sum < 0 or command_sum > 100:
+            if start == 0 and units < 0:
+                password = password - 1
             start = mod
             password += round(abs(command_sum // 100))
         else:
             start = command_sum
 
-        print(password)
-        print(start)
-        
-
-        
-        
+        print("password: " + str(password))
+        print("new start: " + str(start))
+        print('-------')
