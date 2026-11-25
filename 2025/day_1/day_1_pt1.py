@@ -1,12 +1,12 @@
 from pathlib import Path
 
-ROOT = Path(__file__).resolve().parents[2]
+ROOT = Path(__file__).resolve().parents[0]
 print(ROOT)
 
 start = 50
 password = 0 
 
-with open(ROOT / "2025/day_1/input.txt", "r", encoding="utf-8") as file:
+with open(ROOT / "input.txt", "r", encoding="utf-8") as file:
     for line in file:
         print("start: " + str(start))
         command = line.strip()
